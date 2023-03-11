@@ -7,3 +7,15 @@ p {
     text-align: center;
     height: 5vh;
 }
+
+main {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.card {
+    border: 1px solid gray;
+    padding: 1.5em;
+    width: 50vh;
+}
