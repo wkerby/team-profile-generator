@@ -12,70 +12,106 @@ var inquireOn = true;
 const questions = [
     {
         type: 'input',
-        message: "Employee's name (first and last)",
-        name: 'name'
+        message: "Enter the team manager's name (first and last)",
+        name: 'managername'
     },
     {
         type: 'input',
-        message: "Employee's email address",
-        name: 'email'
+        message: "Enter the team manager's id",
+        name: 'managerid'
+    },
+    {
+        type: 'input',
+        message: "Enter the team manager's email address",
+        name: 'manageremail'
+    },
+    {
+        type: 'input',
+        message: "Enter the team manager's office number",
+        name: 'officenum'
     },
     {
         type: 'list',
-        message: 'Employee role',
-        name: 'role',
-        choices: ["Manager", "Engineer", "Intern"]
+        message: 'What would you like to do next?',
+        name: 'next1',
+        choices: ["Add an Engineer", "Add an Intern", "Finish building my team"]
 
     },
     {
         type: 'input',
-        message: "Manager's office number",
-        name: 'officenum',
-        when: (answers) => answers.role == "Manager"
+        message: "Enter the engineer's name (first and last)",
+        name: 'engineername',
+        when: (answers) => answers.next1 == "Add an Engineer"
 
     },
     {
         type: 'input',
-        message: "Engineer's github username",
+        message: "Enter the engineer's id",
+        name: 'engineerid',
+        when: (answers) => answers.next1 == "Add an Engineer"
+
+    },
+    {
+        type: 'input',
+        message: "Enter the engineer's email address",
+        name: 'engineeremail',
+        when: (answers) => answers.next1 == "Add an Engineer"
+
+    },
+    {
+        type: 'input',
+        message: "Enter the engineer's github username",
         name: 'github',
-        when: (answers) => answers.role == "Engineer"
-
+        when: (answers) => answers.next1 == "Add an Engineer"
     },
     {
         type: 'input',
-        message: "School that intern is attending",
-        name: 'school',
-        when: (answers) => answers.role == "Intern"
+        message: "Enter the intern's name (first and last)",
+        name: 'internname',
+        when: (answers) => answers.next1 == "Add an Intern"
     },
     {
-        type: 'confirm',
-        message: 'More employees to add?',
-        name: 'addmore'
-
-    }
-
+        type: 'input',
+        message: "Enter the intern's id",
+        name: 'internid',
+        when: (answers) => answers.next1 == "Add an Intern"
+    },
+    {
+        type: 'input',
+        message: "Enter the intern's email address",
+        name: 'internemail',
+        when: (answers) => answers.next1 == "Add an Intern"
+    },
+    {
+        type: 'input',
+        message: "Enter school that the intern is attending",
+        name: 'school',
+        when: (answers) => answers.next1 == "Add an Intern"
+    },
 ];
 
 inquirer
     .prompt(questions)
     .then(answers => {
-        if (answers.addmore == false) {
-            inquireOn = false;
-            console.log(`${inquireOn}`)
-        }
-        const role = answers.role;
-        switch (role) {
-            case "Manager":
-                const newManager = new Manager(answers.name, answers.email, answers.officenum);
-                console.log(`Hello! My name is ${newManager.name} and I am a manager!`);
+        // if (answers.addmore == false) {
+        //     inquireOn = false;
+        //     console.log(`${inquireOn}`)
+        // }
+        const newManager = new Manager(answers.managername, answers.managerid, answers.manageremail, answers.officenum);
+        console.log(`Hello! My name is ${newManager.name} and my office number is ${newManager.officeNumber}!`)
+        const nextstep = answers.next1;
+        switch (nextstep) {
+            case "Add an Engineer":
+                const newEngineer = new Engineer(answers.engineername, answers.engineerid, answers.engineeremail, answers.github);
+                console.log(`Hello! My name is ${newEngineer.name} and my id is ${newEngineer.id}!`);
                 break;
-            case "Engineer":
-                const newEngineer = new Engineer(answers.name, answers.email, answers.officenum);
-                console.log(`Hello! My name is ${newEngineer.name} and I am a Engineer!`);
-                break;
-            case "Intern":
-                const newIntern = new Intern(answers.name, answers.email, answers.school);
+            case "Add an Intern":
+                const newIntern = new Intern(answers.internname, answers.internid, answers.internemail, answers.school);
                 console.log(`Hello! My name is ${newIntern.name} and my id is ${newIntern.id}!`);
+                break;
+            case "Finish building my team":
+                console.log("Finished!")
+                break;
         }
     })
 
