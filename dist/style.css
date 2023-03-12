@@ -1,5 +1,9 @@
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+
 header {
-    background-color: red;
+    background-color: darkgray;
     margin-top: -1em;
     /* display: flex;
     flex-direction: column;
@@ -8,10 +12,11 @@ header {
 }
 
 p {
-    color: white;
+    color: rgba(0, 0, 0, 0.696);
     text-align: center;
     height: 5vh;
     margin-top: 1em;
+    font-weight: 800;
 }
 
 main {
@@ -22,6 +27,7 @@ main {
 
 .card {
     border: 1px solid gray;
+    border-radius: 5px;
     /* padding-top: 0.5em; */
     padding-bottom: 1.5em;
     /* padding-right: 1.5em;
@@ -38,14 +44,17 @@ main {
 }
 
 .card-header {
-    background-color: blue;
+    background-color: #00acec;
     color: white;
+    border-top-left-radius: 3.5px;
+    border-top-right-radius: 3.5px;
     /* padding-left: 1em;
     padding-right: 1em; */
 }
 
 #name-role-info {
     margin-left: 0.5em;
+    margin-bottom: 0.5em;
 }
 
 #id-email-info {
