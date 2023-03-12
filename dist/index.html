@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
 </head>
 
 <body>
@@ -18,12 +18,16 @@
     <main>
         <div class="card">
             <div class="card-header">
-                <div class="card-title-name">Name</div>
-                <div class="card-title-role">Role</div>
+                <div id="name-role-info">
+                    <div class="card-title-name">Name: <span class="employee-name"></span></div>
+                    <div class="card-title-role">Role: <span class="employee-role"></span></div>
+                </div>
             </div>
             <div class="card-body">
-                <div class="card-data-id">ID</div>
-                <div class="card-data-email">Email</div>
+                <div id="id-email-info">
+                    <div class="card-data-id">ID: <span class="employee-id"></span></div>
+                    <div class="card-data-email">Email: <span class="employee-email"></span></div>
+                </div>
             </div>
         </div>
     </main>
