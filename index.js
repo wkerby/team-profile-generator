@@ -1,9 +1,14 @@
 //require the inquirer package
 const inquirer = require("inquirer");
 
-//bring in classes created in the classes file
-const classes = require("./lib/classes");
-const { Employee, Manager, Engineer, Intern } = classes;
+//bring in classes created in the lib directory
+// const employee = require("./lib/Employee");
+const manager = require("./lib/Manager");
+const Manager = manager.Manager;
+const engineer = require("./lib/Engineer");
+const Engineer = engineer.Engineer;
+const intern = require("./lib/Intern");
+const Intern = intern.Intern;
 
 //create flag for inquire process 
 var inquireOn = true;
