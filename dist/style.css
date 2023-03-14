@@ -5,10 +5,7 @@
 header {
     background-color: darkgray;
     margin-top: -1em;
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center; */
-    /* height: 1.5em; */
+
 }
 
 p {
@@ -26,17 +23,14 @@ main {
     flex-wrap: wrap;
 }
 
+
 .card {
-    /* border: 2px solid gray;
-    border-radius: 5px; */
-    /* padding-top: 0.5em; */
+    border: 2px solid gray;
+    border-radius: 5px;
+    margin-top: 0.5em;
+    padding-top: 0.5em;
     padding-bottom: 1.5em;
-    /* padding-right: 1.5em;
-    padding-left: 1.5em; */
     width: 40vh;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
 
 }
 
@@ -45,10 +39,12 @@ main {
 }
 
 .card-header {
-    background-color: #00acec;
+    background-color: #0053ec;
     color: white;
     border-top-left-radius: 3.5px;
     border-top-right-radius: 3.5px;
+    margin-top: -0.5em;
+    padding-bottom: 0.05em;
     /* padding-left: 1em;
     padding-right: 1em; */
 }

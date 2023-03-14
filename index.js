@@ -12,8 +12,34 @@ const Engineer = engineer.Engineer;
 const intern = require("./lib/Intern");
 const Intern = intern.Intern;
 
-//create flag for inquire process 
-// var inquireOn = true;
+//create init function that clears out file
+const init = () => {
+    const start =
+        `<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <header>
+        <p>Team Members</p>
+    </header>
+    <main>
+
+`
+    fs.writeFile('./dist/index.html', start, e => e ? console.error(e) : console.log(""))
+}
+
+init();
+
 
 //create var to store number of cards created from function
 var cardCount = 0;
@@ -169,7 +195,7 @@ const pushCard = (employee) => {//determines which specific pieces of informatio
                 <div id="id-email-info">
                     <div class="card-data-id">ID: ${employee.id}</div>
                     <div class="card-data-email">Email: <span><a href="mailto:${employee.email}">${employee.email}</a></span></div>
-                    <div class="card-data-office">Office number: ${employee.officeNumber}
+                    <div class="card-data-office">Office number: ${employee.officeNumber}</div>
                 </div>
             </div>
         </div>
@@ -221,8 +247,8 @@ const pushCard = (employee) => {//determines which specific pieces of informatio
 
 }
 
-//add block for user input
 managerCreate();
+
 
 
 
