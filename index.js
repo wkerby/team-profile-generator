@@ -16,7 +16,7 @@ const Intern = intern.Intern;
 // var inquireOn = true;
 
 //create var to store number of cards created from function
-var cardCount = 1;
+var cardCount = 0;
 
 //create functions to ask questions specific to role
 
@@ -179,7 +179,7 @@ const pushCard = (employee) => {//determines which specific pieces of informatio
     else if (employee.getRole() == "Engineer") {
         card =
             `
-        <div id="card1" class="card">
+        <div id="card${cardCount}" class="card">
             <div class="card-header">
                 <div id="name-role-info">
                     <div class="card-title-name">${employee.name}</div>
@@ -200,7 +200,7 @@ const pushCard = (employee) => {//determines which specific pieces of informatio
     else { //employee is an Intern
         card =
             `
-        <div id="card1" class="card">
+        <div id="card${cardCount}" class="card">
             <div class="card-header">
                 <div id="name-role-info">
                     <div class="card-title-name">${employee.name}</div>
