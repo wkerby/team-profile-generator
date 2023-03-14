@@ -1,5 +1,7 @@
 //require the inquirer package
 const inquirer = require("inquirer");
+//require fs package
+const fs = require('fs');
 
 //bring in classes created in the lib directory
 // const employee = require("./lib/Employee");
@@ -12,6 +14,9 @@ const Intern = intern.Intern;
 
 //create flag for inquire process 
 var inquireOn = true;
+
+//create var to store number of cards created from function
+var cardCount = 1;
 
 //create functions to ask questions specific to role
 
@@ -132,8 +137,45 @@ const doNext = () => {
 }
 
 
-//add block for user input
+//create function that creates a card for employee objects
+const pushCard = (employee) => {//determines which specific pieces of information go in the card
+    cardCount++; //increment card count by 1
+    if (employee.getRole() == "Manager") {
+        const cardElem = document.querySelector("#card1");
+        const clone = cardElem.cloneNode(true); //will also copy all elements nested inside of it
+        clone.id = `card${cardCount}`;
+        console.log(clone.children); //want to access the divs inside of which name, role, id, and email info lives
+        //research traversing DOM to access the spans inside of the card
+        cardElem.after(clone);
+        `<div id="card1" class="card">
+            <div class="card-header">
+                <div id="name-role-info">
+                    <div class="card-title-name">${employee.name}</div>
+                    <div class="card-title-role">${employee.getRole()}</div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div id="id-email-info">
+                    <div class="card-data-id">ID: ${employee.id}</div>
+                    <div class="card-data-email">Email: <span><a href="mailto:${employee.email}">${employee.email}</a></span></div>
+                    <div class="card-data-office">Office number: ${employee.officenum}
+                </div>
+            </div>
+        </div>`
+    }
 
+
+}
+
+//create function that writes string of data to file
+const appendToFile = (fileName, data) => {
+    fs.appendFile(fileName, data, e => e ? console.error(e) : console.log("File created!"))
+}
+
+const mikeyG = new Manager("Mike Gotfryd", 89, 'mgotfryd@brasfieldgorrie.com', "103E");
+pushCard(mikeyG.getRole());
+
+//add block for user input
 managerCreate();
 
 
