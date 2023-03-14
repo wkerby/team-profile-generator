@@ -158,7 +158,7 @@ const pushCard = (employee) => {//determines which specific pieces of informatio
     if (employee.getRole() == "Manager") {
         card =
             `
-        <div id="card1" class="card">
+        <div id="card${cardCount}" class="card">
             <div class="card-header">
                 <div id="name-role-info">
                     <div class="card-title-name">${employee.name}</div>
